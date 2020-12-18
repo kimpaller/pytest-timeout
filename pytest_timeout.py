@@ -47,7 +47,7 @@ KNOWN_DEBUGGING_MODULES = {"pydevd", "bdb"}
 Settings = namedtuple("Settings", ["timeout", "method", "func_only"])
 DEFAULT_TIMEOUT_SEC = 60
 
-def graceful_timeout(time=DEFAULT_TIMEOUT_SEC):
+def timeout(time=DEFAULT_TIMEOUT_SEC):
     ''' 
         A decorator to force target function to timeout gracefully.
         Especially useful in Windows environment when pytest-timeout s
@@ -58,7 +58,7 @@ def graceful_timeout(time=DEFAULT_TIMEOUT_SEC):
             import pytest_timeout as t
             ...
 
-            @t.graceful_timeout(time=XXX)
+            @t.timeout(time=XXX)
             def test_function():
                 ...
     '''
